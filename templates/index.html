@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="{{ url_for('static', filename='/images/meta.png') }}" />
+    <meta property="og:description" content="generate over 100 000 of famous quotes" />
+    <title>Random quotes</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h3>random quote generator</h3>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="container-top-item">
+                <div class="filter-box" onclick="location.href='/quotes/religion'">
+                    <h2>Religion</h2>
+                </div>
+                <div class="filter-box" onclick="location.href='/quotes/love'">
+                    <h2>Love</h2>
+                </div>
+                <div class="filter-box" onclick="location.href='/quotes/sports'">
+                    <h2>sports</h2>
+                </div>
+                <div class="filter-box" onclick="location.href='/quotes/art'">
+                    <h2>art</h2>
+                </div>
+                <div class="filter-box" onclick="location.href='/quotes/history'">
+                    <h2>history</h2>
+                </div>
+                <div class="filter-box" onclick="location.href='/quotes/life'">
+                    <h2>Life</h2>
+                </div>
+                <div class="filter-box" onclick="location.href='/quotes/humor'">
+                    <h2>humor</h2>
+                </div>
+            </div>
+            <div class="container-bottom-item">
+                <div class="quote">
+                    <button class="quote-button">+</button>
+                    <div id="quote-box-id" class="quote-box">
+                        <div class="quote-text">
+                            <p id="category_id">category: {{ quotes[0]["category"] }}</p>
+                            <p id="quote">"{{ quotes[0]['text'] }}"</p>
+                            <p id="author">-{{ quotes[0]["author"] }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if path == '/' %}
+                    <button  onclick="location.href='/quotes/all'" class="generate-button">generate new</button>
+                {% else %}
+                     <button  onclick="location.href='/quotes/{{ result }}'" class="generate-button">generate new</button>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    category = document.getElementById("category_id").innerHTML
+    textBox = document.getElementById("quote-box-id").style
+    quoteText = document.getElementById("quote").style
+    author = document.getElementById("author").style
+
+    if(category == "category: religion"){
+
+        textBox.backgroundColor = "#FCD733"
+
+    } else if(category == "category: love"){
+
+        textBox.backgroundColor = "#ED462F"
+        quoteText.color = "#ffffff"
+        document.getElementById("category_id").style.color = "#ffffff"
+        author.color = "#ffffff"
+
+    } else if(category == "category: sports"){
+
+        textBox.backgroundColor = "rgb(243,152,49)"
+
+    } else if(category == "category: art"){
+
+        textBox.backgroundColor = "#234AFB"
+        quoteText.color = "#ffffff"
+        document.getElementById("category_id").style.color = "#ffffff"
+        author.color = "#ffffff"
+
+    } else if(category == "category: humor"){
+
+        textBox.backgroundColor = "#FCD733"
+
+    } else if(category == "category: life"){
+
+        textBox.backgroundColor = "#8552FC"
+        quoteText.color = "#ffffff"
+        document.getElementById("category_id").style.color = "#ffffff"
+        author.color = "#ffffff"
+
+    } else if(category == "category: history"){
+        textBox.backgroundColor = "#75F15A"
+    }
+</script>
+</html>

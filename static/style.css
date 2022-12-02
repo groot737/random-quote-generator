@@ -69,6 +69,7 @@ main{
     text-align: center;
     font-size: 17px;
     padding-top: 7px;
+    cursor: pointer;
 }
 .filter-box:nth-child(2){
     background-color: #FF0000;

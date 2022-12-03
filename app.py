@@ -12,7 +12,7 @@ def fetchData(category):
     querystring = {f"category": f"{category}", "count": "1"}
 
     headers = {
-        "X-RapidAPI-Key": "6055f6109amsh5f98f545278d808p17de95jsnf5df40b69c7d",
+        "X-RapidAPI-Key": "api key",
         "X-RapidAPI-Host": "famous-quotes4.p.rapidapi.com"
     }
 

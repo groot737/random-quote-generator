@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta property="og:image" content="{{ url_for('static', filename='/images/meta.png') }}" />
     <meta property="og:description" content="generate over 100 000 of famous quotes" />
-    <title>Random quotes</title>
+    <title>Random quotes generator</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -43,7 +43,6 @@
             </div>
             <div class="container-bottom-item">
                 <div class="quote">
-                    <button class="quote-button">+</button>
                     <div id="quote-box-id" class="quote-box">
                         <div class="quote-text">
                             <p id="category_id">category: {{ quotes[0]["category"] }}</p>
